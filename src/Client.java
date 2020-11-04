@@ -33,8 +33,9 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
         String serverName = "localhost";
+        int port = 10000;
         Client client = new Client();
-        client.startConnection(serverName,10000);
+        client.startConnection(serverName,port);
         client.getImage();
         client.stopConnection();
     }

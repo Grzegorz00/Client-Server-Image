@@ -37,8 +37,10 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
+        int port = 10000;
+
         Server server = new Server();
-        server.start(10000);
+        server.start(port);
         server.sendImage("data/1.jpg");
         server.stop();
     }
