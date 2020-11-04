@@ -23,7 +23,7 @@ public class Client {
         in.read(imageAr);
 
         BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageAr));
-        ImageIO.write(image,"jpg",new File("receiveData/1.jpg"));
+        ImageIO.write(image,"jpg",new File("receivedData/1.jpg"));
     }
 
     private void stopConnection() throws IOException {
