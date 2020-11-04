@@ -11,8 +11,11 @@ public class Server {
         serverSocket = new ServerSocket(port);
         clientSocket = serverSocket.accept();
 
-        out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+        out.write("Your request: " + in.readLine());
+        out.newLine();
+        out.flush();
 
     }
 
