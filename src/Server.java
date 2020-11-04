@@ -10,7 +10,7 @@ public class Server {
     private BufferedReader in;
     private OutputStream out;
 
-    public void start(int port) throws IOException {
+    private void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);
         clientSocket = serverSocket.accept();
 
@@ -18,7 +18,7 @@ public class Server {
         out = clientSocket.getOutputStream();
     }
 
-    public void sendImage(String path) throws IOException {
+    private void sendImage(String path) throws IOException {
         BufferedImage image = ImageIO.read(new File(path));
         ByteArrayOutputStream boas = new ByteArrayOutputStream();
 
@@ -29,7 +29,7 @@ public class Server {
         out.flush();
     }
 
-    public void stop() throws IOException {
+    private void stop() throws IOException {
         in.close();
         out.close();
         clientSocket.close();
