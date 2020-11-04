@@ -11,10 +11,22 @@ public class Server {
         serverSocket = new ServerSocket(port);
         clientSocket = serverSocket.accept();
 
+        out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
     }
 
-    public static void main(String[] args){
+    public void stop() throws IOException {
+        in.close();
+        out.close();
+        clientSocket.close();
+        serverSocket.close();
+    }
 
+    public static void main(String[] args) throws IOException {
+        Server server = new Server();
+        server.start(10000);
+        server.stop();
     }
 
 }
